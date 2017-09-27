@@ -24,7 +24,7 @@ void clear(DoubleList *list) {
     list->size = 0;
 }
 
-void push(DoubleList *list) {
+void push_back(DoubleList *list) {
     Node *active_node = new Node;
     active_node->value = new Bus;
 
@@ -45,7 +45,7 @@ void push(DoubleList *list) {
     list->size += 1;
 }
 
-void shift(DoubleList *list) {
+void push_front(DoubleList *list) {
     Node *active_node = new Node;
     active_node->value = new Bus;
 
@@ -66,7 +66,7 @@ void shift(DoubleList *list) {
     list->size += 1;
 }
 
-void pop(DoubleList *list) {
+void pop_back(DoubleList *list) {
     if (list->size == 0) return;
     else {
         list->head->prev = list->head->prev->prev;
@@ -78,7 +78,7 @@ void pop(DoubleList *list) {
     list->size -= 1;
 }
 
-void unshift(DoubleList *list) {
+void pop_front(DoubleList *list) {
     if (list->size == 0) return;
     else {
         Node *new_head = new Node;
