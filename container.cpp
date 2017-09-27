@@ -1,35 +1,81 @@
+#include <fstream>
+#include <iostream>
+
 #include "container.hpp"
 
-void init(DoubleList *list) {
-    list->size = 0;
-    list->max_size = 0;
+Transport* input(std::ifstream &fin);
+void output(Transport *transport, std::ofstream &fout);
 
-    list->head = nullptr;
+inline void init(DoubleList *list) {
+	list->size = 0;
+	list->max_size = 10;
+
+	list->head = nullptr;
 }
 
-void clear(DoubleList *list) {
-    Node *head = list->head;
+inline void clear(DoubleList *list) {
+	Node *head = list->head;
 
-    if (head == nullptr) return;
+	if (head == nullptr) return;
 
-    head->prev->next = nullptr;
-    while (head != nullptr)
-    {
-        Node *p = head->next;
-        delete head->value;
-        delete head;
-        head = p;
-    }
+	head->prev->next = nullptr; // tear the chain
+	while (head != nullptr)
+	{
+		Node *current_node = head->next;
+		delete head->value;
+		delete head;
+		head = current_node;
+	}
 
-    list->size = 0;
+	list->size = 0;
 }
 
-void push_back(DoubleList *list) {
-    Node *active_node = new Node;
-    active_node->value = new Bus;
+inline void fill(DoubleList *list, std::ifstream &fin) {
+	int line = 0;
 
-    active_node->value->speed = 100;
+	while (!fin.eof()) {
+		Node* active_node = new Node;
+		active_node->value = input(fin);
 
+		if (list->size == 0) {
+			active_node->next = active_node;
+			active_node->prev = active_node;
+			list->head = active_node;
+		}
+		else {
+			active_node->prev = list->head->prev;
+			list->head->prev->next = active_node;
+			active_node->next = list->head;
+			list->head->prev = active_node;
+		}
+
+		list->size++;
+
+		if (list->size == list->max_size) {
+			std::cout << "Container is full" << std::endl;
+			return;
+		}
+
+		line++;
+	}
+
+	return;
+}
+
+inline void show(DoubleList *list, std::ofstream &fout) {
+	Node *active_node = list->head;
+
+	if (active_node->value == nullptr) {
+		std::cout << "Container is empty" << std::endl;
+	}
+
+	do {
+		active_node = active_node->next;
+		output(active_node->value, fout);
+	} while (active_node != list->head);
+}
+
+/*void push_back(DoubleList *list, Node *active_node) {
     if (list->size == 0) {
         active_node->next = active_node;
         active_node->prev = active_node;
@@ -41,55 +87,58 @@ void push_back(DoubleList *list) {
         active_node->next = list->head;
         list->head->prev = active_node;
     }
-
     list->size += 1;
+
+	return;
 }
 
-void push_front(DoubleList *list) {
-    Node *active_node = new Node;
-    active_node->value = new Bus;
+/*inline void push_front(DoubleList *list, Transport) {
+	Node *active_node = new Node;
+	active_node->value = new Bus;
 
-    active_node->value->speed = 50;
+	active_node->value->speed = 50;
 
-    if (list->size == 0) {
-        active_node->next = active_node;
-        active_node->prev = active_node;
-    }
-    else {
-        active_node->next = list->head;
-        list->head->prev->next = active_node;
-        active_node->prev = list->head->prev;
-        list->head->prev = active_node;
-    }
+	if (list->size == 0) {
+		active_node->next = active_node;
+		active_node->prev = active_node;
+	}
+	else {
+		active_node->next = list->head;
+		list->head->prev->next = active_node;
+		active_node->prev = list->head->prev;
+		list->head->prev = active_node;
+	}
 
-    list->head = active_node;
-    list->size += 1;
+	list->head = active_node;
+	list->size += 1;
 }
 
-void pop_back(DoubleList *list) {
-    if (list->size == 0) return;
-    else {
-        list->head->prev = list->head->prev->prev;
-        delete list->head->prev->next;
-        list->head->prev->next = list->head;
+inline void pop_back(DoubleList *list) {
+	if (list->size == 0) return;
+	else {
+		list->head->prev = list->head->prev->prev;
+		delete list->head->prev->next;
+		list->head->prev->next = list->head;
 
-    }
+	}
 
-    list->size -= 1;
+	list->size -= 1;
 }
 
-void pop_front(DoubleList *list) {
-    if (list->size == 0) return;
-    else {
-        Node *new_head = new Node;
+inline void pop_front(DoubleList *list) {
+	if (list->size == 0) return;
+	else {
+		Node *new_head = new Node;
 
-        new_head = list->head->next;
-        new_head->prev = list->head->prev;
-        list->head->prev->next = new_head;
+		new_head = list->head->next;
+		new_head->prev = list->head->prev;
+		list->head->prev->next = new_head;
 
-        delete list->head;
-        list->head = new_head;
-    }
+		delete list->head;
+		list->head = new_head;
+	}
 
-    list->size -= 1;
+	list->size -= 1;
 }
+
+*/

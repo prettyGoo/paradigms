@@ -1,10 +1,10 @@
 #ifndef PARADIGMS_CONTAINER_HPP
 #define PARADIGMS_CONTAINER_HPP
 
-#include "bus.hpp"
+struct Transport;
 
 struct Node {
-    Bus *value;
+    Transport *value;
     Node *next;
     Node *prev;
 };
