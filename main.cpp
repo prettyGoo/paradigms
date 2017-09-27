@@ -3,14 +3,8 @@
 #include <cstdlib>
 #include <clocale>
 
-
-#include "bus.hpp"
-#include "truck.hpp"
 #include "container.cpp"
 
-#include "file_stream.hpp"
-
-using namespace std;
 
 int main(int argc, char* argv[]) {
 
@@ -19,52 +13,36 @@ int main(int argc, char* argv[]) {
 //        exit(EXIT_FAILURE);
 //    }
 
-//    FileStream stream;
-//    stream.ifsteam_name = argv[1];
-//    stream.ofstream_name = argv[2];
+	std::ifstream fin("in.txt");
+	if (!fin.is_open()) {
+		std::cout << "Input file has not been found" << std::endl;
+		exit(EXIT_FAILURE);
+	}
 
-    std::ifstream f;
-    f.open("in.txt", std::fstream::in);
-    if (f.is_open()) {
-        std::cout << "SUccess\n";
-    }
-    f.close();
-
-    std::ifstream ff;
-    ff.open("out.txt", std::fstream::in);
-    if (ff.is_open()) {
-        std::cout << "1 SUccess\n";
-    }
-    ff.close();
+	std::ofstream fout("out.txt");
+	if (!fout.is_open()) {
+		std::cout << "Output file has not been found" << std::endl;
+		exit(EXIT_FAILURE);
+	}
 
     DoubleList list;
     init(&list);
 
-    push_back(&list);
-    push_back(&list);
-    push_front(&list);
-    push_front(&list);
+	fill(&list, fin);
+	show(&list, fout);
+	std::cout << "The size of the container is " << list.size << std::endl;
 
-//    std::cout << list.head->value->speed << std::endl;
-//    std::cout << list.head->next->value->speed << std::endl;
-//    std::cout << list.head->next->next->value->speed << std::endl;
-//    std::cout << list.head->next->next->next->value->speed << std::endl;
-//    std::cout << list.head->next->next->next->next->value->speed << std::endl;
+	clear(&list);
+	std::cout << "The container has been cleaned. Its size is " << list.size << std::endl;
 
-//    pop(&list);
-//    std::cout << list.head->value->speed << std::endl;
-//    std::cout << list.head->next->value->speed << std::endl;
-//    std::cout << list.head->next->next->value->speed << std::endl;
-//    std::cout << list.head->next->next->next->value->speed << std::endl;
+	fin.close();
 
-//    unshift(&list);
-//    std::cout << list.head->value->speed << std::endl;
-//    std::cout << list.head->next->value->speed << std::endl;
-//    std::cout << list.head->next->next->value->speed << std::endl;
-//    std::cout << list.head->next->next->next->value->speed << std::endl;
+#ifdef _WIN64
+	system("pause");
+#elif _WIN32
+	system("pause");
+#endif // _WIN64
 
-//    clear(&list);
-    std::cout << list.size << std::endl;
 
     return 0;
 }
