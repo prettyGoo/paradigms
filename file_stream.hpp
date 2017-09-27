@@ -1,0 +1,8 @@
+//
+// Created by nikita on 26.09.17.
+//
+
+#ifndef PARADIGMS_FILE_STREAM_HPP
+#define PARADIGMS_FILE_STREAM_HPP
+
+#endif //PARADIGMS_FILE_STREAM_HPP
