@@ -6,3 +6,10 @@ Makefile
 
 cmake-build-debug/
 
+.vs/
+Debug/
+Paradigms.sln
+Paradigms.vcxproj
+Paradigms.vcxproj.filters
+x64/
+
