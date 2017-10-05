@@ -4,7 +4,7 @@
 
 struct Truck {
     int speed;
-    float goods_capacity;
+    double power;
 };
 
 #endif //PARADIGMS_TRUCK_HPP

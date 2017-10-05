@@ -11,6 +11,12 @@ void output(Bus *bus, std::ofstream &fout);
 void output(Truck *truck, std::ofstream &fout);
 void output(Car *car, std::ofstream &fout);
 
+
+double calculate_value(Bus *bus);
+double calculate_value(Truck *truck);
+double calculate_value(Car *car);
+
+// ==========================================
 Transport* input(std::ifstream &fin) {
 	Transport *transport = nullptr;
 
@@ -64,5 +70,23 @@ void output(Transport *transport, std::ofstream &fout)
 		}
 		default:
 			break;
+	}
+}
+
+double ouput_calculate_value(Transport *transport) {
+	switch (transport->mean)
+	{
+		case Transport::mean::BUS: {
+			return calculate_value(&transport->bus);
+		}
+		case  Transport::mean::TRUCK: {
+			return calculate_value(&transport->truck);
+		}
+		case  Transport::mean::CAR: {
+			return calculate_value(&transport->car);
+
+		}
+		default:
+			return -1.0;
 	}
 }

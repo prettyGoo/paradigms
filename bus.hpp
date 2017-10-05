@@ -4,7 +4,7 @@
 
 struct Bus {
     int speed;
-    float passengers_capacity;
+    double power;
 };
 
 #endif //PARADIGMS_BUS_HPP

@@ -5,6 +5,7 @@
 
 Transport* input(std::ifstream &fin);
 void output(Transport *transport, std::ofstream &fout);
+double ouput_calculate_value(Transport *transport);
 
 void init(DoubleList *list) {
 	list->size = 0;
@@ -72,6 +73,19 @@ void show(DoubleList *list, std::ofstream &fout) {
 	do {
 		active_node = active_node->next;
 		output(active_node->value, fout);
+	} while (active_node != list->head);
+}
+
+void show_calculate_value(DoubleList *list, std::ofstream &fout) {
+	Node *active_node = list->head;
+
+	if (active_node->value == nullptr) {
+		std::cout << "Container is empty" << std::endl;
+	}
+
+	do {
+		active_node = active_node->next;
+		fout << ouput_calculate_value(active_node->value) << std::endl;
 	} while (active_node != list->head);
 }
 

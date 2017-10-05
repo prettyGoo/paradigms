@@ -4,10 +4,14 @@
 
 void input(Car *car, std::ifstream &fin)
 {
-	fin >> car->speed >> car->goods_capacity;
+	fin >> car->speed >> car->power;
 }
 
 void output(Car *car, std::ofstream &fout)
 {
-	fout << "Car: " << car->speed << " " << car->goods_capacity << std::endl;
+	fout << "Car: " << car->speed << " " << car->power << std::endl;
+}
+
+double calculate_value(Car *car) {
+	return car->power * car->speed;
 }
