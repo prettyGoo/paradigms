@@ -6,14 +6,14 @@
 Transport* input(std::ifstream &fin);
 void output(Transport *transport, std::ofstream &fout);
 
-inline void init(DoubleList *list) {
+void init(DoubleList *list) {
 	list->size = 0;
 	list->max_size = 10;
 
 	list->head = nullptr;
 }
 
-inline void clear(DoubleList *list) {
+void clear(DoubleList *list) {
 	Node *head = list->head;
 
 	if (head == nullptr) return;
@@ -30,7 +30,7 @@ inline void clear(DoubleList *list) {
 	list->size = 0;
 }
 
-inline void fill(DoubleList *list, std::ifstream &fin) {
+void fill(DoubleList *list, std::ifstream &fin) {
 	int line = 0;
 
 	while (!fin.eof()) {
@@ -62,7 +62,7 @@ inline void fill(DoubleList *list, std::ifstream &fin) {
 	return;
 }
 
-inline void show(DoubleList *list, std::ofstream &fout) {
+void show(DoubleList *list, std::ofstream &fout) {
 	Node *active_node = list->head;
 
 	if (active_node->value == nullptr) {

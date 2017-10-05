@@ -16,7 +16,6 @@ struct Transport {
 		Truck truck;
 	};
 
-	Transport* input(std::ifstream &fin);
 };
 
 

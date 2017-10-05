@@ -16,4 +16,9 @@ struct DoubleList {
     Node* head;
 };
 
+void init(DoubleList *list);
+void clear(DoubleList *list);
+void fill(DoubleList *list, std::ifstream &fin);
+void show(DoubleList *list, std::ofstream &fout);
+
 #endif //PARADIGMS_CONTAINER_HPP
