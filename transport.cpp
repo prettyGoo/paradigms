@@ -59,6 +59,10 @@ void output(Transport *transport, std::ofstream &fout)
 			output(&transport->truck, fout);
 			break;
 		}
+		case  Transport::mean::CAR: {
+			output(&transport->car, fout);
+			break;
+		}
 		default:
 			break;
 	}
