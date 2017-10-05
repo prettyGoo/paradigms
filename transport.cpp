@@ -5,10 +5,11 @@
 
 void input(Bus *bus, std::ifstream &fin);
 void input(Truck *truck, std::ifstream &fin);
+void input(Car *car, std::ifstream &fin);
 
 void output(Bus *bus, std::ofstream &fout);
 void output(Truck *truck, std::ofstream &fout);
-
+void output(Car *car, std::ofstream &fout);
 
 Transport* input(std::ifstream &fin) {
 	Transport *transport = nullptr;
@@ -32,6 +33,13 @@ Transport* input(std::ifstream &fin) {
 
 			return transport;
 		}
+		case Transport::mean::CAR: {
+			transport = new Transport;
+			transport->mean = Transport::mean::CAR;
+			input(&transport->car, fin);
+
+			return transport;
+		}
 		default:
 			return transport;
 	}
@@ -48,6 +56,10 @@ void output(Transport *transport, std::ofstream &fout)
 		}
 		case  Transport::mean::TRUCK: {
 			output(&transport->truck, fout);
+			break;
+		}
+		case  Transport::mean::CAR: {
+			output(&transport->car, fout);
 			break;
 		}
 		default:
