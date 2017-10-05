@@ -5,6 +5,7 @@
 struct Car {
 	int speed;
 	double power;
+	double fuel_usage;
 };
 
 #endif //PARADIGMS_CAR_HPP
