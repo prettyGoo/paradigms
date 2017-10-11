@@ -10,7 +10,7 @@ void input(Bus *bus, std::ifstream &fin)
 
 void output(Bus *bus, std::ofstream &fout)
 {
-	fout << "Bus: speed" << bus->speed << ", power: " << bus->power << ", fuel usage:" << bus->fuel_usage << std::endl;
+	fout << "Bus: speed: " << bus->speed << ", power: " << bus->power << ", fuel usage:" << bus->fuel_usage << std::endl;
 }
 
 double calculate_value(Bus *bus) {

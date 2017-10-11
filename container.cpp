@@ -6,6 +6,7 @@
 Transport* input(std::ifstream &fin);
 void output(Transport *transport, std::ofstream &fout);
 double ouput_calculate_value(Transport *transport);
+bool compare_for_greatness(Transport* transport_one, Transport* transport_two);
 
 void init(DoubleList *list) {
 	list->size = 0;
@@ -71,8 +72,8 @@ void show(DoubleList *list, std::ofstream &fout) {
 	}
 
 	do {
-		active_node = active_node->next;
 		output(active_node->value, fout);
+		active_node = active_node->next;
 	} while (active_node != list->head);
 }
 
@@ -89,6 +90,25 @@ void show_calculate_value(DoubleList *list, std::ofstream &fout) {
 	} while (active_node != list->head);
 }
 
+void sort(DoubleList *list) {
+	Node* active_node = list->head;
+	Node* node_to_compare = active_node->next;
+
+	Transport *buffer;
+
+	while (active_node->next != list->head) {
+		while (node_to_compare != list->head) {
+			if (compare_for_greatness(active_node->value, node_to_compare->value)) {
+				buffer = active_node->value;
+				active_node->value = node_to_compare->value;
+				node_to_compare->value = buffer;
+			}
+			node_to_compare = node_to_compare->next;
+		}
+		active_node = active_node->next;
+		node_to_compare = active_node->next;
+	}
+}
 /*void push_back(DoubleList *list, Node *active_node) {
     if (list->size == 0) {
         active_node->next = active_node;

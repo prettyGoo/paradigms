@@ -19,6 +19,7 @@ struct DoubleList {
 void init(DoubleList *list);
 void clear(DoubleList *list);
 void fill(DoubleList *list, std::ifstream &fin);
+void sort(DoubleList *list);
 void show(DoubleList *list, std::ofstream &fout);
 void show_calculate_value(DoubleList *list, std::ofstream &fout);
 

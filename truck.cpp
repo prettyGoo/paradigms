@@ -9,7 +9,7 @@ void input(Truck *truck, std::ifstream &fin)
 
 void output(Truck *truck, std::ofstream &fout)
 {
-	fout << "Truck: speed" << truck->speed << ", power: " << truck->power << ", fuel usage:" << truck->fuel_usage << std::endl;
+	fout << "Truck: speed: " << truck->speed << ", power: " << truck->power << ", fuel usage:" << truck->fuel_usage << std::endl;
 }
 
 double calculate_value(Truck *truck) {

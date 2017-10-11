@@ -90,3 +90,7 @@ double ouput_calculate_value(Transport *transport) {
 			return -1.0;
 	}
 }
+
+bool compare_for_greatness(Transport* transport_one, Transport* transport_two) {
+	return ouput_calculate_value(transport_one) > ouput_calculate_value(transport_two);
+}

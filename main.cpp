@@ -29,6 +29,7 @@ int main(int argc, char* argv[]) {
     init(&list);
 
 	fill(&list, fin);
+	sort(&list);
 	show(&list, fout);
 	std::cout << "The size of the container is " << list.size << std::endl;
 
