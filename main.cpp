@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
 
 	fill(&list, fin);
 	sort(&list);
-	show(&list, fout);
+	show_cars_only(&list, fout);
 	std::cout << "The size of the container is " << list.size << std::endl;
 
 	clear(&list);

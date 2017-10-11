@@ -77,6 +77,21 @@ void show(DoubleList *list, std::ofstream &fout) {
 	} while (active_node != list->head);
 }
 
+void show_cars_only(DoubleList *list, std::ofstream &fout) {
+	Node *active_node = list->head;
+
+	if (active_node->value == nullptr) {
+		std::cout << "Container is empty" << std::endl;
+	}
+
+	do {
+		if (active_node->value->mean == Transport::mean::CAR)
+			output(active_node->value, fout);
+
+		active_node = active_node->next;
+	} while (active_node != list->head);
+}
+
 void show_calculate_value(DoubleList *list, std::ofstream &fout) {
 	Node *active_node = list->head;
 

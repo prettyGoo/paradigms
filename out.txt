@@ -1,8 +1,2 @@
 Car: speed: 0, power: 0, fuel usage:0
-Bus: speed: 1, power: 1, fuel usage:1
 Car: speed: 2, power: 2, fuel usage:2
-Truck: speed: 3, power: 3, fuel usage:3
-Truck: speed: 5, power: 5, fuel usage:5
-Bus: speed: 6, power: 6, fuel usage:6
-Bus: speed: 7, power: 7, fuel usage:7
-Truck: speed: 11, power: 11, fuel usage:11
