@@ -5,6 +5,7 @@
 struct Bus {
     int speed;
     double power;
+	double fuel_usage;
 };
 
 #endif //PARADIGMS_BUS_HPP

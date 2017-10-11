@@ -9,7 +9,7 @@ double ouput_calculate_value(Transport *transport);
 
 void init(DoubleList *list) {
 	list->size = 0;
-	list->max_size = 10;
+	list->max_size = 100;
 
 	list->head = nullptr;
 }

@@ -4,12 +4,12 @@
 
 void input(Truck *truck, std::ifstream &fin)
 {
-	fin >> truck->speed >> truck->power;
+	fin >> truck->speed >> truck->power >> truck->fuel_usage;
 }
 
 void output(Truck *truck, std::ofstream &fout)
 {
-	fout << "Truck: " << truck->speed << " " << truck->power << std::endl;
+	fout << "Truck: speed" << truck->speed << ", power: " << truck->power << ", fuel usage:" << truck->fuel_usage << std::endl;
 }
 
 double calculate_value(Truck *truck) {
