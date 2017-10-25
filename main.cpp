@@ -25,17 +25,18 @@ int main(int argc, char* argv[]) {
 		exit(EXIT_FAILURE);
 	}
 
-    DoubleList list;
-    init(&list);
+    List list;
 
-	fill(&list, fin);
-	show(&list, fout);
-	std::cout << "The size of the container is " << list.size << std::endl;
+	list.InputData(fin);
+	list.OutputData(fout);
 
-	clear(&list);
-	std::cout << "The container has been cleaned. Its size is " << list.size << std::endl;
+	std::cout << "The size of the container is " << list.Count() << std::endl;
+
+	list.Clear();
+	std::cout << "The container has been cleaned. Its size is " << list.Count() << std::endl;
 
 	fin.close();
+	fout.close();
 
 #ifdef _WIN64
 	system("pause");

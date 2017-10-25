@@ -3,12 +3,13 @@
 #include "bus.hpp"
 
 
-void input(Bus *bus, std::ifstream &fin)
+void Bus::InputData(std::ifstream &fin)
 {
-	fin >> bus->speed >> bus->passengers_capacity;
+	fin >> space >> power;
 }
 
-void output(Bus *bus, std::ofstream &fout)
+
+void Bus::OutputData(std::ofstream &fout)
 {
-	fout << "Bus: " << bus->speed << " " << bus->passengers_capacity << std::endl;
+	fout << "Bus: " << space << " sits for passangers, " << power << " power" << std::endl;
 }

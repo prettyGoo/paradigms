@@ -2,12 +2,14 @@
 
 #include "truck.hpp"
 
-void input(Truck *truck, std::ifstream &fin)
+
+void Truck::InputData(std::ifstream &fin)
 {
-	fin >> truck->speed >> truck->goods_capacity;
+	fin >> weight >> power;
 }
 
-void output(Truck *truck, std::ofstream &fout)
+
+void Truck::OutputData(std::ofstream &fout)
 {
-	fout << "Truck: " << truck->speed << " " << truck->goods_capacity << std::endl;
+	fout << "Truck: " << weight << " tonns, " << power << " power" << std::endl;
 }

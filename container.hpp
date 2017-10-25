@@ -1,24 +1,33 @@
 #ifndef PARADIGMS_CONTAINER_HPP
 #define PARADIGMS_CONTAINER_HPP
 
-struct Transport;
+#include "transport.hpp"
 
-struct Node {
-    Transport *value;
-    Node *next;
-    Node *prev;
+
+class Node
+{
+	public:
+		Transport *value;
+		Node *next;
+		Node *prev;
 };
 
-struct DoubleList {
-    int size;
-    int max_size;
 
-    Node* head;
+class List
+{
+	private:
+		Node *head;
+
+	public:
+		void InputData(std::ifstream &fin);
+		void OutputData(std::ofstream &fout);
+		void Clear();
+		
+		int Count();
+
+		List() { head = nullptr; }
+		~List() { Clear(); }
 };
 
-void init(DoubleList *list);
-void clear(DoubleList *list);
-void fill(DoubleList *list, std::ifstream &fin);
-void show(DoubleList *list, std::ofstream &fout);
 
 #endif //PARADIGMS_CONTAINER_HPP

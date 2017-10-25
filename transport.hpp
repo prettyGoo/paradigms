@@ -3,20 +3,20 @@
 
 #include <fstream>
 
-#include "bus.hpp"
-#include "truck.hpp"
+//#include "bus.hpp"
+//#include "truck.hpp"
 
-struct Transport {
-	enum mean { BUS = 0, TRUCK = 1};
-	mean mean;
 
-	union
-	{
-		Bus bus;
-		Truck truck;
-	};
+class Transport
+{
+	public:
+		static Transport* InputTransport(std::ifstream &fin);
+		virtual void InputData(std::ifstream &fin) = 0;
+		virtual void OutputData(std::ofstream &fout) = 0;
+
+	protected:
+		Transport() {};
 
 };
-
 
 #endif //PARADIGMS_TRANSPORT_HPP

@@ -2,20 +2,51 @@
 #include <iostream>
 
 #include "container.hpp"
+#include "transport.hpp"
 
-Transport* input(std::ifstream &fin);
-void output(Transport *transport, std::ofstream &fout);
 
-void init(DoubleList *list) {
-	list->size = 0;
-	list->max_size = 10;
+void List::InputData(std::ifstream &fin)
+{
+	while (!fin.eof()) {
+		Node* active_node = new Node;
+		active_node->value = Transport::InputTransport(fin);
 
-	list->head = nullptr;
+		if (head == nullptr) {
+			active_node->next = active_node;
+			active_node->prev = active_node;
+			head = active_node;
+		}
+		else {
+			active_node->prev = head->prev;
+			head->prev->next = active_node;
+			active_node->next = head;
+			head->prev = active_node;
+		}
+	}
+
+	return;
 }
 
-void clear(DoubleList *list) {
-	Node *head = list->head;
 
+void List::OutputData(std::ofstream &fout)
+{
+	Node *active_node = head;
+
+	if (active_node->value == nullptr) {
+		std::cout << "Container is empty" << std::endl;
+		return;
+	}
+
+	do {
+		active_node->value->OutputData(fout);
+		active_node = active_node->next;
+
+	} while (active_node != head);
+}
+
+
+void List::Clear()
+{
 	if (head == nullptr) return;
 
 	head->prev->next = nullptr; // tear the chain
@@ -26,119 +57,19 @@ void clear(DoubleList *list) {
 		delete head;
 		head = current_node;
 	}
-
-	list->size = 0;
 }
 
-void fill(DoubleList *list, std::ifstream &fin) {
-	int line = 0;
 
-	while (!fin.eof()) {
-		Node* active_node = new Node;
-		active_node->value = input(fin);
+int List::Count() {
+	Node *active_node = head;
+	int counter = 0;
 
-		if (list->size == 0) {
-			active_node->next = active_node;
-			active_node->prev = active_node;
-			list->head = active_node;
-		}
-		else {
-			active_node->prev = list->head->prev;
-			list->head->prev->next = active_node;
-			active_node->next = list->head;
-			list->head->prev = active_node;
-		}
-
-		list->size++;
-
-		if (list->size == list->max_size) {
-			std::cout << "Container is full" << std::endl;
-			return;
-		}
-
-		line++;
-	}
-
-	return;
-}
-
-void show(DoubleList *list, std::ofstream &fout) {
-	Node *active_node = list->head;
-
-	if (active_node->value == nullptr) {
-		std::cout << "Container is empty" << std::endl;
-	}
+	if (active_node == nullptr) return 0;
 
 	do {
+		counter++;
 		active_node = active_node->next;
-		output(active_node->value, fout);
-	} while (active_node != list->head);
+	} while (active_node != head);
+
+	return counter;
 }
-
-/*void push_back(DoubleList *list, Node *active_node) {
-    if (list->size == 0) {
-        active_node->next = active_node;
-        active_node->prev = active_node;
-        list->head = active_node;
-    }
-    else {
-        active_node->prev = list->head->prev;
-        list->head->prev->next = active_node;
-        active_node->next = list->head;
-        list->head->prev = active_node;
-    }
-    list->size += 1;
-
-	return;
-}
-
-/*inline void push_front(DoubleList *list, Transport) {
-	Node *active_node = new Node;
-	active_node->value = new Bus;
-
-	active_node->value->speed = 50;
-
-	if (list->size == 0) {
-		active_node->next = active_node;
-		active_node->prev = active_node;
-	}
-	else {
-		active_node->next = list->head;
-		list->head->prev->next = active_node;
-		active_node->prev = list->head->prev;
-		list->head->prev = active_node;
-	}
-
-	list->head = active_node;
-	list->size += 1;
-}
-
-inline void pop_back(DoubleList *list) {
-	if (list->size == 0) return;
-	else {
-		list->head->prev = list->head->prev->prev;
-		delete list->head->prev->next;
-		list->head->prev->next = list->head;
-
-	}
-
-	list->size -= 1;
-}
-
-inline void pop_front(DoubleList *list) {
-	if (list->size == 0) return;
-	else {
-		Node *new_head = new Node;
-
-		new_head = list->head->next;
-		new_head->prev = list->head->prev;
-		list->head->prev->next = new_head;
-
-		delete list->head;
-		list->head = new_head;
-	}
-
-	list->size -= 1;
-}
-
-*/
