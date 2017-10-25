@@ -3,9 +3,6 @@
 
 #include <fstream>
 
-//#include "bus.hpp"
-//#include "truck.hpp"
-
 
 class Transport
 {
@@ -14,8 +11,9 @@ class Transport
 		virtual void InputData(std::ifstream &fin) = 0;
 		virtual void OutputData(std::ofstream &fout) = 0;
 
-	protected:
-		Transport() {};
+
+	Transport() {};
+	virtual ~Transport() {}
 
 };
 

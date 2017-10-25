@@ -1,6 +1,8 @@
 #ifndef PARADIGMS_BUS_HPP
 #define PARADIGMS_BUS_HPP
 
+#include <iostream>
+
 #include "transport.hpp"
 
 
@@ -14,6 +16,7 @@ class Bus : public Transport
 		void InputData(std::ifstream &fin);
 		void OutputData(std::ofstream &fout);
 		Bus() {};
+		~Bus() {};
 };
 
 

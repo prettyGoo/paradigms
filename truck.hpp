@@ -4,9 +4,8 @@
 #include "transport.hpp"
 
 
-
 class Truck : public Transport
-	{
+{
 	private:
 		int weight;
 		int power;
@@ -15,6 +14,7 @@ class Truck : public Transport
 		void InputData(std::ifstream &fin);
 		void OutputData(std::ofstream &fout);
 		Truck() {};
+		~Truck() {};
 };
 
 
