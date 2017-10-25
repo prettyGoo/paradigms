@@ -5,13 +5,13 @@
 
 void Bus::InputData(std::ifstream &fin)
 {
-	fin >> space >> power;
+	fin >> space >> power >> fuelUsage;
 }
 
 
 void Bus::OutputData(std::ofstream &fout)
 {
-	fout << "Bus: " << space << " sits for passangers, " << power << " power" << std::endl;
+	fout << "Bus: " << space << " sits for passangers, " << power << " power, " << "fuel usage " << fuelUsage << std::endl;
 }
 
 int Bus::CalculateValue()

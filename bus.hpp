@@ -9,6 +9,7 @@ class Bus : public Transport
 	private:
 		short space;
 		int power;
+		float fuelUsage;
 
 	public:
 		void InputData(std::ifstream &fin);
