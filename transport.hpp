@@ -13,6 +13,7 @@ class Transport
 		static Transport* InputTransport(std::ifstream &fin);
 		virtual void InputData(std::ifstream &fin) = 0;
 		virtual void OutputData(std::ofstream &fout) = 0;
+		virtual int CalculateValue() = 0;
 
 	protected:
 		Transport() {};

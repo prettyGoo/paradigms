@@ -13,6 +13,7 @@ class Bus : public Transport
 	public:
 		void InputData(std::ifstream &fin);
 		void OutputData(std::ofstream &fout);
+		int CalculateValue();
 		Bus() {};
 };
 

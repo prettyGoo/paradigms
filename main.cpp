@@ -28,10 +28,10 @@ int main(int argc, char* argv[]) {
     List list;
 
 	list.InputData(fin);
-	list.OutputData(fout);
+	//list.OutputData(fout);
+	list.OutputCalculatedValues(fout);
 
 	std::cout << "The size of the container is " << list.Count() << std::endl;
-
 	list.Clear();
 	std::cout << "The container has been cleaned. Its size is " << list.Count() << std::endl;
 

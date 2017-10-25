@@ -13,6 +13,7 @@ private:
 public:
 	void InputData(std::ifstream &fin);
 	void OutputData(std::ofstream &fout);
+	int CalculateValue();
 	Car() {};
 };
 

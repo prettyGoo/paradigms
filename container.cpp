@@ -73,3 +73,15 @@ int List::Count() {
 
 	return counter;
 }
+
+
+void List::OutputCalculatedValues(std::ofstream &fout) 
+{
+	Node *active_node = head;
+	if (head == nullptr) return;
+
+	do {
+		fout << "Calculated value: " << active_node->value->CalculateValue() << std::endl;
+		active_node = active_node->next;
+	} while (active_node != head);
+}

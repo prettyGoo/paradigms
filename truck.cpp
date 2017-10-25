@@ -13,3 +13,9 @@ void Truck::OutputData(std::ofstream &fout)
 {
 	fout << "Truck: " << weight << " tonns, " << power << " power" << std::endl;
 }
+
+
+int Truck::CalculateValue()
+{
+	return power * weight;
+}

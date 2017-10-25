@@ -13,3 +13,8 @@ void Bus::OutputData(std::ofstream &fout)
 {
 	fout << "Bus: " << space << " sits for passangers, " << power << " power" << std::endl;
 }
+
+int Bus::CalculateValue()
+{
+	return power * space;
+}

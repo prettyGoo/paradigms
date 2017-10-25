@@ -13,3 +13,8 @@ void Car::OutputData(std::ofstream &fout)
 {
 	fout << "Car: " << maxSpeed << " max speed, " << power << " power" << std::endl;
 }
+
+int Car::CalculateValue()
+{
+	return power * maxSpeed;
+}
