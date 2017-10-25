@@ -4,6 +4,7 @@
 
 #include "bus.hpp"
 #include "truck.hpp"
+#include "car.hpp"
 
 
 Transport* Transport::InputTransport(std::ifstream &fin)
@@ -19,6 +20,9 @@ Transport* Transport::InputTransport(std::ifstream &fin)
 		break;
 	case 1:
 		mean = new Truck();
+		break;
+	case 2:
+		mean = new Car();
 		break;
 	default:
 		std::cout << "Unknown key" << std::endl;
