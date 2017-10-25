@@ -1,6 +1,8 @@
 #ifndef PARADIGMS_BUS_HPP
 #define PARADIGMS_BUS_HPP
 
+#include <iostream>
+
 #include "transport.hpp"
 
 

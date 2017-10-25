@@ -4,9 +4,8 @@
 #include "transport.hpp"
 
 
-
 class Truck : public Transport
-	{
+{
 	private:
 		int weight;
 		int power;

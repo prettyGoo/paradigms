@@ -1,7 +1,0 @@
-Bus: 100 sits for passangers, 100 power, fuel usage 1
-Truck: 23 tonns, 42 power, fuel usage 1
-Bus: 400 sits for passangers, 600 power, fuel usage 1
-Truck: 73 tonns, 63 power, fuel usage 1
-Car: 100 max speed, 60 power, fuel usage 1
-Bus: 3 sits for passangers, 50 power, fuel usage 1
-Car: 70 max speed, 100 power, fuel usage 1
