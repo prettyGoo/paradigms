@@ -18,3 +18,8 @@ int Car::CalculateValue()
 {
 	return power * maxSpeed;
 }
+
+void Car::OutputCar(std::ofstream &fout)
+{
+	OutputData(fout);
+}

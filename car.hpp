@@ -14,6 +14,9 @@ public:
 	void InputData(std::ifstream &fin);
 	void OutputData(std::ofstream &fout);
 	int CalculateValue();
+
+	void OutputCar(std::ofstream &fout);
+
 	Car() {};
 };
 

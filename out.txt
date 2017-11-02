@@ -4,3 +4,6 @@ Car: 12 max speed, 56 power, fuel usage 2
 Truck: 1000 tonns, 32 power, fuel usage 3
 Bus: 100 sits for passangers, 100 power, fuel usage 1
 Car: 12 max speed, 56 power, fuel usage 2
+
+
+Car: 12 max speed, 56 power, fuel usage 2

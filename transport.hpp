@@ -17,6 +17,8 @@ class Transport
 
 		bool Compare(Transport *transportToCompare);
 
+		virtual void OutputCar(std::ofstream &fout);
+
 		Transport() {};
 		virtual ~Transport() {};
 

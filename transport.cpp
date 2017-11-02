@@ -38,3 +38,8 @@ bool Transport::Compare(Transport *transportToCompare)
 {
 	return CalculateValue() < transportToCompare->CalculateValue();
 }
+
+void Transport::OutputCar(std::ofstream &fout)
+{
+	fout << std::endl;
+}

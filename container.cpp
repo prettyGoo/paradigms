@@ -107,3 +107,20 @@ void List::Sort()
 		node_to_compare = active_node->next;
 	}
 }
+
+
+void List::PickyOutput(std::ofstream &fout)
+{
+	Node *active_node = head;
+
+	if (active_node->value == nullptr) {
+		std::cout << "Container is empty" << std::endl;
+		return;
+	}
+
+	do {
+		active_node->value->OutputCar(fout);
+		active_node = active_node->next;
+
+	} while (active_node != head);
+}
