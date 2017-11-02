@@ -85,3 +85,25 @@ void List::OutputCalculatedValues(std::ofstream &fout)
 		active_node = active_node->next;
 	} while (active_node != head);
 }
+
+
+void List::Sort()
+{
+	Node* active_node = head;
+	Node* node_to_compare = active_node->next;
+
+	Transport *buffer;
+
+	while (active_node->next != head) {
+		while (node_to_compare != head) {
+			if (active_node->value->Compare(node_to_compare->value)) {
+				buffer = active_node->value;
+				active_node->value = node_to_compare->value;
+				node_to_compare->value = buffer;
+			}
+			node_to_compare = node_to_compare->next;
+		}
+		active_node = active_node->next;
+		node_to_compare = active_node->next;
+	}
+}

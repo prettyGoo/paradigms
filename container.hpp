@@ -26,6 +26,8 @@ class List
 		int Count();
 		void OutputCalculatedValues(std::ofstream &fout);
 
+		void Sort();
+
 		List() { head = nullptr; }
 		~List() { Clear(); }
 };

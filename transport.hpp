@@ -15,8 +15,8 @@ class Transport
 		virtual void OutputData(std::ofstream &fout) = 0;
 		virtual int CalculateValue() = 0;
 
+		bool Compare(Transport *transportToCompare);
 
-	protected:
 		Transport() {};
 		virtual ~Transport() {};
 

@@ -32,3 +32,9 @@ Transport* Transport::InputTransport(std::ifstream &fin)
 	mean->InputData(fin);
 	return mean;
 }
+
+
+bool Transport::Compare(Transport *transportToCompare) 
+{
+	return CalculateValue() < transportToCompare->CalculateValue();
+}
