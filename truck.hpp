@@ -9,7 +9,6 @@ class Truck : public Transport
 	private:
 		int weight;
 		int power;
-		float fuelUsage;
 
 	public:
 		void InputData(std::ifstream &fin);

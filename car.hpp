@@ -9,7 +9,6 @@ class Car : public Transport
 private:
 	short maxSpeed;
 	int power;
-	float fuelUsage;
 
 public:
 	void InputData(std::ifstream &fin);

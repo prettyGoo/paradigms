@@ -6,6 +6,9 @@
 
 class Transport
 {
+	protected:
+		float fuelUsage;
+
 	public:
 		static Transport* InputTransport(std::ifstream &fin);
 		virtual void InputData(std::ifstream &fin) = 0;
@@ -15,8 +18,10 @@ class Transport
 
 	protected:
 		Transport() {};
-		//virtual ~Transport() {};
+		virtual ~Transport() {};
 
 };
 
 #endif //PARADIGMS_TRANSPORT_HPP
+
+
