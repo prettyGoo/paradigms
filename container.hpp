@@ -27,7 +27,7 @@ class List
 		void OutputCalculatedValues(std::ofstream &fout);
 
 		void Sort();
-		void PickyOutput(std::ofstream &fout);
+		void OutputOnly(Transport *base_transport,std::ofstream &fout);
 
 		List() { head = nullptr; }
 		~List() { Clear(); }

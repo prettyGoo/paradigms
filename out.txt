@@ -1,9 +1,31 @@
-Bus: 100 sits for passangers, 100 power, fuel usage 1
-Truck: 1000 tonns, 32 power, fuel usage 3
-Car: 12 max speed, 56 power, fuel usage 2
-Truck: 1000 tonns, 32 power, fuel usage 3
-Bus: 100 sits for passangers, 100 power, fuel usage 1
-Car: 12 max speed, 56 power, fuel usage 2
+Bus: 1 sits for passangers, 2 power, fuel usage 3, 2
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Car: 1 max speed, 2 power, fuel usage 3, 2
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Car: 1 max speed, 2 power, fuel usage 3, 2
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Car: 1 max speed, 23 power, fuel usage 3, 23
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Truck: 4 tonns, 53 power, fuel usage 6, 212
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Truck: 4 tonns, 52 power, fuel usage 6, 208
+Truck: 443 tonns, 5 power, fuel usage 6, 2215
 
+||||||||||
+Truck: 443 tonns, 5 power, fuel usage 6, 2215
+Truck: 4 tonns, 53 power, fuel usage 6, 212
+Truck: 4 tonns, 52 power, fuel usage 6, 208
+Car: 1 max speed, 23 power, fuel usage 3, 23
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Truck: 4 tonns, 5 power, fuel usage 6, 20
+Bus: 1 sits for passangers, 2 power, fuel usage 3, 2
+Car: 1 max speed, 2 power, fuel usage 3, 2
+Car: 1 max speed, 2 power, fuel usage 3, 2
 
-Car: 12 max speed, 56 power, fuel usage 2
+||||||||||
+Car: 1 max speed, 23 power, fuel usage 3, 23
+Car: 1 max speed, 2 power, fuel usage 3, 2
+Car: 1 max speed, 2 power, fuel usage 3, 2

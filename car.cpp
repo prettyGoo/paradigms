@@ -11,7 +11,7 @@ void Car::InputData(std::ifstream &fin)
 
 void Car::OutputData(std::ofstream &fout)
 {
-	fout << "Car: " << maxSpeed << " max speed, " << power << " power, " << "fuel usage " << fuelUsage << std::endl;
+	fout << "Car: " << maxSpeed << " max speed, " << power << " power, " << "fuel usage " << fuelUsage << ", " << CalculateValue() << std::endl;
 }
 
 int Car::CalculateValue()

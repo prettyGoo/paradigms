@@ -4,6 +4,8 @@
 #include "container.hpp"
 #include "transport.hpp"
 
+#include "car.hpp"
+
 
 void List::InputData(std::ifstream &fin)
 {
@@ -109,7 +111,7 @@ void List::Sort()
 }
 
 
-void List::PickyOutput(std::ofstream &fout)
+void List::OutputOnly(Transport *base_transport, std::ofstream &fout)
 {
 	Node *active_node = head;
 
@@ -119,8 +121,9 @@ void List::PickyOutput(std::ofstream &fout)
 	}
 
 	do {
-		active_node->value->OutputCar(fout);
+		if (dynamic_cast<Car*> (active_node->value) != 0) {
+			active_node->value->OutputData(fout);
+		}
 		active_node = active_node->next;
-
 	} while (active_node != head);
 }

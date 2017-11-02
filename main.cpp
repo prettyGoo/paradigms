@@ -4,6 +4,7 @@
 #include <clocale>
 
 #include "container.hpp"
+#include "car.hpp"
 
 
 int main(int argc, char* argv[]) {
@@ -30,11 +31,15 @@ int main(int argc, char* argv[]) {
 	list.InputData(fin);
 	list.OutputData(fout);
 
+	fout << std::endl << "||||||||||" << std::endl;
 	list.Sort();
 	list.OutputData(fout);
 
 	// output only cars
-	list.PickyOutput(fout);
+	fout << std::endl << "||||||||||" << std::endl;
+	Car *car = new Car();
+	list.OutputOnly(car, fout);
+	delete car;
 
 	std::cout << "The size of the container is " << list.Count() << std::endl;
 	list.Clear();

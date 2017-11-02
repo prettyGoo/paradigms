@@ -11,7 +11,7 @@ void Truck::InputData(std::ifstream &fin)
 
 void Truck::OutputData(std::ofstream &fout)
 {
-	fout << "Truck: " << weight << " tonns, " << power << " power, " << "fuel usage " << fuelUsage << std::endl;
+	fout << "Truck: " << weight << " tonns, " << power << " power, " << "fuel usage " << fuelUsage << ", " << CalculateValue() << std::endl;
 }
 
 
