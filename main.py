@@ -1,10 +1,14 @@
-from abc import ABCMeta, abstractmethod
-import inspect
-from transport.abstract_transport import AbstractTransport
+from abc import ABCMeta
+
 from transport.bus import Bus
 from transport.truck import Truck
 
+from container.linked_list import LinkedList
+
 import transport
+from dataflow.io import IO
+
+
 package = transport
 
 import pkgutil
@@ -78,7 +82,7 @@ for importer, modname, ispkg in pkgutil.walk_packages(path=package.__path__,
 #         pass
 
 
-container = []
+container = LinkedList()
 import sys, inspect
 
 b = Bus(1, 1)
@@ -91,7 +95,7 @@ with open('in', 'r') as f:
                 for name, class_obj in inspect.getmembers(sys.modules[submod]):
                     if inspect.isclass(class_obj) and not inspect.isabstract(class_obj) and class_obj is not ABCMeta:
                         if class_obj.id == int(raw_data):
-                            container.append(globals()[name](4, 6))
+                            container.add(globals()[name](4, 6))
                         # print(name, raw_data)
         else:
             break
@@ -99,10 +103,17 @@ with open('in', 'r') as f:
 
 f.close()
 
+import sys
 
 with open('out', 'w') as f:
-    for elem in container:
-        print(elem)
-        f.write(str(elem) + '\n')
-#
+
+    active_node = container.head
+    sys.exit(0) if active_node is None else None
+
+    while active_node.next is not None:
+        data = active_node.get_data()
+        print(data, file=f)
+
+        active_node = active_node.get_next()
+
 f.close()
