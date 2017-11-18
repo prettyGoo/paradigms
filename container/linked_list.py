@@ -1,3 +1,5 @@
+from abc import ABCMeta, abstractmethod
+
 from .node import Node
 
 
@@ -16,3 +18,4 @@ class LinkedList(object):
 
     def _is_empty(self):
         return self.head is None
+
