@@ -8,12 +8,18 @@ class AbstractTransport(metaclass=ABCMeta):
         self_name = self.__class__.__name__
         string = "{}: ".format(self_name)
 
-        for i in inspect.getmembers(self):
-            if not i[0].startswith('_'):
-                if not inspect.ismethod(i[1]):
-                    string += '{} = {} '.format(i[0], i[1])
+        for method_name, method in inspect.getmembers(self):
+            if not self._is_private(method_name):
+                if not self._is_method(method):
+                    string += '{} = {} '.format(method_name, method)
 
         return string
+
+    def _is_private(self, member):
+        return member.startswith('_')
+
+    def _is_method(self, member):
+        return inspect.ismethod(member)
 
     @abstractmethod
     def output_data(self):
