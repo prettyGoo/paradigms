@@ -4,6 +4,9 @@ import inspect
 
 class AbstractTransport(metaclass=ABCMeta):
 
+    def __init__(self, power):
+        self.power = power
+
     def __str__(self):
         self_name = self.__class__.__name__
         string = "{}: ".format(self_name)
@@ -22,5 +25,5 @@ class AbstractTransport(metaclass=ABCMeta):
         return inspect.ismethod(member)
 
     @abstractmethod
-    def output_data(self):
+    def abstractionize(self):
         pass
