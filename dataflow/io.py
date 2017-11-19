@@ -52,7 +52,9 @@ class IO(object):
         for submod in submodules:
             for name, class_obj in inspect.getmembers(sys.modules[submod]):
                 if inspect.isclass(class_obj) and not inspect.isabstract(class_obj) \
-                        and class_obj is not ABCMeta and not class_obj.__name__.endswith('Decorator'):
+                        and class_obj is not ABCMeta \
+                        and not class_obj.__name__.endswith('Decorator') \
+                        and not class_obj.__name__.endswith('Interface'):
                     class_objects.append(class_obj)
 
         self.class_objects = class_objects
