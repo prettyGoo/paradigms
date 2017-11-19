@@ -1,11 +1,13 @@
-import sys
 import transport
+
+import sys
 import inspect
-from abc import ABCMeta
-package = transport
-
-
 from pkgutil import walk_packages
+
+from abc import ABCMeta
+
+
+package = transport
 submodules = []
 for _, modname, _ in walk_packages(path=package.__path__, prefix=package.__name__+'.', onerror=lambda x: None):
     submodules.append(modname)
@@ -23,7 +25,7 @@ class IO(object):
             raw_data = f.readline()
 
             while raw_data:
-                data = raw_data.split(' ')
+                data = self._prepare_data(raw_data)
                 self._create_entity_from_data(data)
 
                 raw_data = f.readline()
@@ -32,14 +34,17 @@ class IO(object):
         with open(self.stdout_path, 'w') as f:
             active_node = self.source.head
 
-            if active_node is None:
-                return
-
-            while active_node.next is not None:
+            while active_node is not None:
                 data = active_node.get_data()
                 print(data, file=f)
 
                 active_node = active_node.get_next()
+
+    def _prepare_data(self, raw_data):
+        data = raw_data.replace('\n', '').split(' ')
+        data = list(map(lambda d: int(d), data))
+
+        return data
 
     def _prepare_entities_objects_list(self):
         class_objects = []
@@ -55,5 +60,6 @@ class IO(object):
     def _create_entity_from_data(self, data):
         for entity in self.class_objects:
             if entity.id == int(data[0]):
-                self.source.add(entity(4, 6))
-                print(entity.__name__, data[0])
+                # print(data)
+                self.source.add(entity(data[1:]))
+                # print(entity.__name__, data[0])
