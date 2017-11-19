@@ -41,4 +41,4 @@ class WeightToPowerTruckDecorator(WeightToPowerDecorator):
         return getattr(self._decoratee, name)
 
     def weight_to_power(self):
-        return self._decoratee.capacity / self._decoratee.power
+        return self._decoratee.weight / self._decoratee.power
