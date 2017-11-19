@@ -1,10 +1,11 @@
 from container.linked_list import LinkedList
 
-from transport.bus import Bus
-from transport.truck import Truck
-from transport.decorators import SpeedDecorator, WeightToPowerBusDecorator, WeightToPowerTruckDecorator
+import transport.bus
+import transport.truck
+import transport.decorators
 
 from dataflow.io import IO
+
 
 if __name__ == '__main__':
 
