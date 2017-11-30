@@ -1,3 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 out
+
+diagrams/*.png
+container/__pycache__/
+dataflow/__pycache__/
+diagrams/
+tests/__pycache__/
+transport/__pycache__/
