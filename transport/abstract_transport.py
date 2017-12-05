@@ -15,6 +15,8 @@ class AbstractTransport(metaclass=ABCMeta):
             if not self._is_private(method_name):
                 if not self._is_method(method):
                     string += '{} = {} '.format(method_name, method)
+                else:
+                    string += '{} = {} '.format(method_name, method())
 
         return string
 
@@ -25,5 +27,5 @@ class AbstractTransport(metaclass=ABCMeta):
         return inspect.ismethod(member)
 
     @abstractmethod
-    def abstractionize(self):
+    def _abstractionize(self):
         pass

@@ -14,7 +14,7 @@ class BusInterface(AbstractTransport):
         self.weight = params[0]
         super().__init__(params[1])
 
-    def abstractionize(self):
+    def _abstractionize(self):
         pass
 
 
