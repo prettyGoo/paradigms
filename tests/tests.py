@@ -70,10 +70,10 @@ class TestIO(unittest.TestCase):
 
         with open('tests/test_out', 'r') as f:
             data = f.readline()
-            self.assertEquals(data, "Car: capacity = 1 id = 2 power = 5 \n")
+            self.assertEqual(data, "Car: id = 2 power = 5 weight = 1 \n")
 
             data = f.readline()
-            self.assertEquals(data, "Truck: id = 1 power = 4 weight = 1 \n")
+            self.assertEqual(data, "Truck: id = 1 power = 4 weight = 1 \n")
 
             data = f.readline()
-            self.assertEquals(data, "Bus: id = 0 power = 1 weight = 1 \n")
+            self.assertEqual(data, "Bus: id = 0 power = 1 weight = 1 \n")
