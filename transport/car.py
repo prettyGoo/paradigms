@@ -11,7 +11,7 @@ class CarInterface(AbstractTransport):
     def __init__(self, *args):
         params = args[0]
 
-        self.max_speed = params[0]
+        self.capacity = params[0]
         super().__init__(params[1])
 
     def abstractionize(self):
