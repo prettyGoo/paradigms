@@ -8,3 +8,6 @@ dataflow/__pycache__/
 diagrams/
 tests/__pycache__/
 transport/__pycache__/
+
+tests/test_in
+tests/test_out
