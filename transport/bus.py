@@ -1,5 +1,5 @@
 from .abstract_transport import AbstractTransport
-from .decorators import SpeedDecorator
+from .decorators import WeightToPowerDecorator
 
 
 class BusInterface(AbstractTransport):
@@ -26,4 +26,4 @@ class Bus(BusInterface):
         super().__init__((args[0][:2]))
 
         # decorate an object below
-        # e.g. self = MyDecorator(self, decor_params)
+        self = WeightToPowerDecorator(self)
