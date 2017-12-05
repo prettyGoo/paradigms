@@ -76,4 +76,4 @@ class TestIO(unittest.TestCase):
             self.assertEquals(data, "Truck: id = 1 power = 4 weight = 1 \n")
 
             data = f.readline()
-            self.assertEquals(data, "Bus: capacity = 1 id = 0 power = 1 \n")
+            self.assertEquals(data, "Bus: id = 0 power = 1 weight = 1 \n")
