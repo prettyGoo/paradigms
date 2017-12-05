@@ -2,6 +2,7 @@ from container.linked_list import LinkedList
 
 import transport.bus
 import transport.truck
+import transport.car
 import transport.decorators
 
 from dataflow.io import IO
