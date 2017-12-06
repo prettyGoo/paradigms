@@ -1,5 +1,5 @@
 from .abstract_transport import AbstractTransport
-from .decorators import WeightToPowerDecorator
+from .decorators import SpeedDecorator, WeightToPowerDecorator
 
 
 class TruckInterface(AbstractTransport):
@@ -26,4 +26,4 @@ class Truck(TruckInterface):
         super().__init__((args[0][:2]))
 
         # decorate an object below
-        self = WeightToPowerDecorator(self)
+        self = SpeedDecorator(self, args[0][2])
