@@ -26,4 +26,5 @@ class Truck(TruckInterface):
         super().__init__((args[0][:2]))
 
         # decorate an object below
-        self = SpeedDecorator(self, args[0][2])
+        WeightToPowerDecorator(self)
+        SpeedDecorator(self, args[0][2])
