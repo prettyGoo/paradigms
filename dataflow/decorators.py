@@ -12,9 +12,6 @@ class WriteOnlyDecorator(metaclass=ABCMeta):
         return getattr(self._decoratee, name)
 
     def write_only(self):
-        container = self._decoratee.source
-        active_node = container.head
-
         with open(self._decoratee.stdout_path, 'w') as f:
             active_node = self._decoratee.source.head
 
