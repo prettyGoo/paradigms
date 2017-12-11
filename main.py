@@ -1,12 +1,13 @@
 from container.linked_list import LinkedList
 from container.decorators import SortDecorator
 
-import transport.bus
+from transport.bus import Bus
 import transport.truck
 import transport.car
 import transport.decorators
 
 from dataflow.io import IO
+from dataflow.decorators import WriteOnlyDecorator
 
 
 if __name__ == '__main__':
@@ -19,6 +20,10 @@ if __name__ == '__main__':
     io.read()
     io.source.sort()
     io.write()
+
+    WriteOnlyDecorator(io, Bus)
+    io.write_only()
+
 
     container.clean()
 
