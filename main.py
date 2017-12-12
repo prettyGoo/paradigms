@@ -7,7 +7,7 @@ import transport.car
 import transport.decorators
 
 from dataflow.io import IO
-from dataflow.decorators import WriteOnlyDecorator
+from dataflow.decorators import WriteOnlyDecorator, MultiDecorator
 
 
 if __name__ == '__main__':
@@ -24,6 +24,8 @@ if __name__ == '__main__':
     WriteOnlyDecorator(io, Bus)
     io.write_only()
 
+    MultiDecorator(io)
+    io.multi()
 
     container.clean()
 

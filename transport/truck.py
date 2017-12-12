@@ -1,5 +1,5 @@
 from .abstract_transport import AbstractTransport
-from .decorators import SpeedDecorator, WeightToPowerDecorator
+from .decorators import SpeedDecorator, WeightToPowerDecorator, MultiDecorator
 
 
 class TruckInterface(AbstractTransport):
@@ -28,3 +28,4 @@ class Truck(TruckInterface):
         # decorate an object below
         WeightToPowerDecorator(self)
         SpeedDecorator(self, args[0][2])
+        MultiDecorator(self)
