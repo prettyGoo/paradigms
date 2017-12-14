@@ -32,4 +32,18 @@ class MultiDecorator(metaclass=ABCMeta):
         return getattr(self._decoratee, name)
 
     def _multi(self, another):
-        return "{} and {}".format(self._decoratee, another)
+        if self.id is 0 and another.id is 0 \
+            or self.id is 1 and another.id is 1 \
+            or self.id is 2 and another.id is 2:
+                return "{} and {} - both destroyed".format(self._decoratee, another)
+
+        if self.id is 1:
+            return "{} alive and {} destroyed".format(self._decoratee, another)
+        elif another.id is 1:
+            return "{} destroyed and {} alive ".format(self._decoratee, another)
+
+        if self.id is 1 and another.id is 2:
+            return "{} alive and {} destroyed".format(self._decoratee, another)
+        else:
+            return "{} destroyed and {} alive ".format(self._decoratee, another)
+
